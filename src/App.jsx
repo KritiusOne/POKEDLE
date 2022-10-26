@@ -1,5 +1,9 @@
+import React from "react";
 export function App(){
   return (
-    <h1>Hola Mundo</h1>
+    
+    <div>
+      <h1> hola mundo </h1>
+    </div>
   )
 }
