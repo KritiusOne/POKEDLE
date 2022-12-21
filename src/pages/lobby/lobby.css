@@ -1,0 +1,21 @@
+.lobby{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.lobby__title{
+  font-size: 32px;
+  color: #000;
+  margin-bottom: 16px;
+}
+.lobby__button{
+  color: #000;
+  background-color: #44AA66;
+  border-radius: 10px;
+  padding: 10px;
+  font-size: 16px;
+  text-decoration: none;
+}

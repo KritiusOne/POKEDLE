@@ -1,0 +1,14 @@
+.game__letter-container{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+.LetterInput{
+  width: 20px;
+  height: 30px;
+  border: 1px solid #000;
+  margin: 0 10px 5px 10px;
+}
