@@ -6,7 +6,6 @@ import { BrowserRouter} from 'react-router-dom'
 import './index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  <React.StrictMode>
     <PokeContextProvider>
       <BrowserRouter>
         <MyRoutes>
@@ -14,5 +13,4 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </MyRoutes>
       </BrowserRouter>
     </PokeContextProvider>
-  </React.StrictMode>
 )
