@@ -22,9 +22,9 @@ export function Game(){
     if(LETTERS.test(letra) && !e.repeat && letra.length <= 1){
       const celdaVacia = arr.find((cell, index, arrayCells)=> {
         if(cell.innerText == '' || cell.innerText  == undefined) return cell
-        else if(arrayCells.length - 1 == index) return null
       })
-      celdaVacia !== null ? celdaVacia.innerText = letra.toUpperCase() : console.log('Todas las celdas llenas')
+      console.log(celdaVacia)
+      celdaVacia !== undefined ? celdaVacia.innerText = letra.toUpperCase() : console.log('Todas las celdas llenas')
     }else if(DELETE_KEY.includes(letra)){
      if(lleno == true){
       const ultimaCelda = arr[arr.length - 1]
