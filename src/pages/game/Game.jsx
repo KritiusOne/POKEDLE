@@ -16,16 +16,26 @@ export function Game(){
     const letra = e.key
     const cells = document.querySelectorAll('.'+OPORTUNIDADES[0])
     const arr = [...cells]
+    let lleno = false;
+    if(arr[arr.length -1].innerText !== '') lleno = true
 
     if(LETTERS.test(letra) && !e.repeat && letra.length <= 1){
-      const celdaVacia = arr.find((cell)=> {
+      const celdaVacia = arr.find((cell, index, arrayCells)=> {
         if(cell.innerText == '' || cell.innerText  == undefined) return cell
-        else return //componente de notificacion de celdas llenas
+        else if(arrayCells.length - 1 == index) return null
       })
-      celdaVacia.innerText = letra.toUpperCase()
+      celdaVacia !== null ? celdaVacia.innerText = letra.toUpperCase() : console.log('Todas las celdas llenas')
     }else if(DELETE_KEY.includes(letra)){
-      const celdaLlena = arr.find((cell, index, arrayCell)=> arrayCell[parseInt(index) + 1].innerText == '')
-      celdaLlena.innerText = ''
+     if(lleno == true){
+      const ultimaCelda = arr[arr.length - 1]
+      ultimaCelda.innerText = ''
+      lleno = false
+     }else{
+        const celdaLlena = arr.find((cell, index, arrayCell)=> {
+          if(arrayCell[parseInt(index) + 1].innerText == '' && arrayCell[parseInt(index) + 1] != null ) return cell
+        })
+        celdaLlena.innerText = ''
+     }
     }
     console.log(letra)
       
