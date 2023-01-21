@@ -1,6 +1,6 @@
 export const DELETE_KEY = ["Backspace", "Delete"]
 
-export const LETTERS = /([A-Z]), i/
+export const LETTERS = new RegExp("([A-Z])", "i")
 
 export const SPECIAL = [
   "Control",

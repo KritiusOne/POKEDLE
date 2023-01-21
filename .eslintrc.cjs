@@ -23,5 +23,6 @@ module.exports = {
   rules: {
     "json/*": ["error", { allowComments: true }],
     "react/prop-types": ["off"],
+    "no-invalid-regexp": ["warm", { allowConstructorFlags: true }],
   },
 }

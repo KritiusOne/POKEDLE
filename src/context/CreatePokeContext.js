@@ -1,8 +1,8 @@
 import { createContext } from "react"
 
 export const CreatePokeContext = createContext({
-  name: null,
+  name: "",
   setName: null,
-  AllPokemon: null,
+  AllPokemon: [],
   setAllPokemon: null,
 })
