@@ -1,13 +1,23 @@
-import React, {useState} from "react";
-import { CreatePokeContext } from "./CreatePokeContext";
+import { useState } from "react"
+import { CreatePokeContext } from "./CreatePokeContext"
+import Proptypes from "prop-types"
 
-export function PokeContextProvider({children}){
-  const [pokemon, setPokemon] = useState('');
-  return(
-    <CreatePokeContext.Provider value={{
-      pokemon, setPokemon
-    }}>
+export function PokeContextProvider({ children }) {
+  const [pokemon, setPokemon] = useState("")
+  const [AllPokemon, setAllPokemon] = useState([])
+  return (
+    <CreatePokeContext.Provider
+      value={{
+        pokemon,
+        setPokemon,
+        AllPokemon,
+        setAllPokemon,
+      }}
+    >
       {children}
     </CreatePokeContext.Provider>
   )
+}
+PokeContextProvider.Proptypes = {
+  children: Proptypes.node.isRequired,
 }

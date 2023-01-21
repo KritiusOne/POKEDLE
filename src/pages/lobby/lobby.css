@@ -1,4 +1,4 @@
-.lobby{
+.lobby {
   display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
@@ -6,14 +6,14 @@
   align-items: center;
 }
 
-.lobby__title{
+.lobby__title {
   font-size: 32px;
   color: #000;
   margin-bottom: 16px;
 }
-.lobby__button{
+.lobby__button {
   color: #000;
-  background-color: #44AA66;
+  background-color: #44aa66;
   border-radius: 10px;
   padding: 10px;
   font-size: 16px;

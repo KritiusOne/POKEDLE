@@ -1,11 +1,11 @@
-.button{
+.button {
   height: 60px;
   padding: 5px 10px;
   font-size: 24px;
   background: none;
-  border: none;  
+  border: none;
   cursor: pointer;
 }
-.button__title{
+.button__title {
   font-size: 24px;
 }

@@ -1,4 +1,4 @@
-.Header{
+.Header {
   position: fixed;
   top: 0;
   display: flex;
@@ -11,6 +11,6 @@
   border: none;
   border-bottom: 1px solid #999;
 }
-.header__Button__icon{
+.header__Button__icon {
   font-size: 24px;
 }
