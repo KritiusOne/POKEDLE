@@ -1,19 +1,18 @@
-import { useContext, useEffect } from "react"
+import { useState, useContext, useEffect } from "react"
 import { CreatePokeContext } from "../../context/CreatePokeContext"
 import { usePokemon } from "../../hooks/usePokemon"
 import { LetterInput } from "../../components/LetterInput/LetterInput"
 import { DELETE_KEY, SPECIAL, LETTERS } from "../../utilities/keyTypes"
 import { Header } from "../../components/header/Header"
 import "./game.css"
-import { useState } from "react"
 
 export function Game() {
-  usePokemon()
-  const context = useContext(CreatePokeContext)
-  console.log("Respuesta-> " + context.pokemon)
-  console.log("Opciones-> " + context.AllPokemon)
+  const [actualPokemon, setActualPokemon] = useState("")
+  const Pokemon = usePokemon()
+  console.log("Respuesta-> " + Pokemon)
   const oportunidades = ["primera", "segunda", "tercerda", "cuarta", "quinta"]
   useEffect(() => {
+    setActualPokemon(Pokemon)
     const handleKeyUp = (e) => {
       const letra = e.key
       const cells = document.querySelectorAll(
@@ -49,8 +48,8 @@ export function Game() {
           const namePokemonParcial = arr.map((cell) => cell.innerText)
           const namePokemonFinal = namePokemonParcial.slice().join("")
           console.log(namePokemonFinal)
-          const respuestaCorrecta = context.pokemon.toUpperCase()
-          console.log(context.pokemon)
+          const respuestaCorrecta = Pokemon.toUpperCase()
+          console.log(Pokemon)
           // 1. Letras en su posición, 2. Letras fuera de posición, 3. Letras que no van
           if (respuestaCorrecta == namePokemonFinal)
             console.log("La respuesta es correcta")
@@ -68,23 +67,23 @@ export function Game() {
     <div className="game">
       <Header />
       <LetterInput
-        namePkm={context.pokemon}
+        namePkm={Pokemon}
         numberContainer={oportunidades[oportunidades.length - 1]}
       />
       <LetterInput
-        namePkm={context.pokemon}
+        namePkm={Pokemon}
         numberContainer={oportunidades[oportunidades.length - 2]}
       />
       <LetterInput
-        namePkm={context.pokemon}
+        namePkm={Pokemon}
         numberContainer={oportunidades[oportunidades.length - 3]}
       />
       <LetterInput
-        namePkm={context.pokemon}
+        namePkm={Pokemon}
         numberContainer={oportunidades[oportunidades.length - 4]}
       />
       <LetterInput
-        namePkm={context.pokemon}
+        namePkm={Pokemon}
         numberContainer={oportunidades[oportunidades.length - 5]}
       />
     </div>
