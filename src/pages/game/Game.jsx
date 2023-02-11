@@ -4,10 +4,12 @@ import { usePokemon } from "../../hooks/usePokemon"
 import { LetterInput } from "../../components/LetterInput/LetterInput"
 import { DELETE_KEY, SPECIAL, LETTERS } from "../../utilities/keyTypes"
 import { Header } from "../../components/header/Header"
+import { Modal } from "../../components/modal/Modal"
 import "./game.css"
 
 export function Game() {
   const [actualPokemon, setActualPokemon] = useState("")
+  const [mostrarModalConfig, setMostrarModalConfig] = useState(false)
   const Pokemon = usePokemon()
   console.log("Respuesta-> " + Pokemon)
   const oportunidades = ["primera", "segunda", "tercerda", "cuarta", "quinta"]
@@ -64,28 +66,37 @@ export function Game() {
     }
   }, [])
   return (
-    <div className="game">
-      <Header />
-      <LetterInput
-        namePkm={Pokemon}
-        numberContainer={oportunidades[oportunidades.length - 1]}
-      />
-      <LetterInput
-        namePkm={Pokemon}
-        numberContainer={oportunidades[oportunidades.length - 2]}
-      />
-      <LetterInput
-        namePkm={Pokemon}
-        numberContainer={oportunidades[oportunidades.length - 3]}
-      />
-      <LetterInput
-        namePkm={Pokemon}
-        numberContainer={oportunidades[oportunidades.length - 4]}
-      />
-      <LetterInput
-        namePkm={Pokemon}
-        numberContainer={oportunidades[oportunidades.length - 5]}
-      />
-    </div>
+    <>
+      <div className="game">
+        <Header />
+        <LetterInput
+          namePkm={Pokemon}
+          numberContainer={oportunidades[oportunidades.length - 1]}
+        />
+        <LetterInput
+          namePkm={Pokemon}
+          numberContainer={oportunidades[oportunidades.length - 2]}
+        />
+        <LetterInput
+          namePkm={Pokemon}
+          numberContainer={oportunidades[oportunidades.length - 3]}
+        />
+        <LetterInput
+          namePkm={Pokemon}
+          numberContainer={oportunidades[oportunidades.length - 4]}
+        />
+        <LetterInput
+          namePkm={Pokemon}
+          numberContainer={oportunidades[oportunidades.length - 5]}
+        />        
+      </div>
+      {mostrarModalConfig && <Modal title={'configuracion'}>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </Modal>}
+  </>
   )
 }
