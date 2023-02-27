@@ -5,6 +5,7 @@ import Proptypes from "prop-types"
 export function PokeContextProvider({ children }) {
   const [pokemon, setPokemon] = useState("")
   const [AllPokemon, setAllPokemon] = useState([])
+  const [mostrarModalConfig, setMostrarModalConfig] = useState(false)
   return (
     <CreatePokeContext.Provider
       value={{
@@ -12,6 +13,8 @@ export function PokeContextProvider({ children }) {
         setPokemon,
         AllPokemon,
         setAllPokemon,
+        mostrarModalConfig,
+        setMostrarModalConfig
       }}
     >
       {children}

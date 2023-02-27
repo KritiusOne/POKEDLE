@@ -3,9 +3,11 @@ import { IoIosHelpCircle } from "react-icons/io"
 import { BiDownArrow } from "react-icons/bi"
 import { GiNetworkBars } from "react-icons/gi"
 import { FiSettings } from "react-icons/fi"
-import { useState } from "react"
+import { useState, useContext } from "react"
+import { CreatePokeContext } from "../../context/CreatePokeContext"
 import "./header.css"
 export function Header() {
+  const {mostrarModalConfig, setMostrarModalConfig} = useContext(CreatePokeContext)
   return (
     <header className='Header'>
       <Button handleClick={() => console.log("Boton de ayuda")} title=''>
@@ -21,7 +23,7 @@ export function Header() {
         <Button handleClick={() => console.log("Boton de puntuacion")} title=''>
           <GiNetworkBars className='header__Button__icon' />
         </Button>
-        <Button handleClick={()=> console.log('este es el menu de config')} title=''>
+        <Button handleClick={()=> setMostrarModalConfig(!mostrarModalConfig)} title=''>
           <FiSettings className='header__Button__icon' s />
         </Button>
       </div>

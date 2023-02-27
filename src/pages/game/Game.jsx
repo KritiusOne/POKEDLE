@@ -9,7 +9,7 @@ import "./game.css"
 
 export function Game() {
   const [actualPokemon, setActualPokemon] = useState("")
-  const [mostrarModalConfig, setMostrarModalConfig] = useState(false)
+  const {mostrarModalConfig, setMostrarModalConfig} = useContext(CreatePokeContext)
   const Pokemon = usePokemon()
   console.log("Respuesta-> " + Pokemon)
   const oportunidades = ["primera", "segunda", "tercerda", "cuarta", "quinta"]
