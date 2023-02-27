@@ -9,7 +9,7 @@ import "./game.css"
 
 export function Game() {
   const [actualPokemon, setActualPokemon] = useState("")
-  const {mostrarModalConfig, setMostrarModalConfig} = useContext(CreatePokeContext)
+  const {mostrarModalConfig, setMostrarModalConfig, mostrarModalAyuda, setMostrarModalAyuda, mostrarModalRanking, setMostrarModalRanking} = useContext(CreatePokeContext)
   const Pokemon = usePokemon()
   console.log("Respuesta-> " + Pokemon)
   const oportunidades = ["primera", "segunda", "tercerda", "cuarta", "quinta"]
@@ -90,7 +90,21 @@ export function Game() {
           numberContainer={oportunidades[oportunidades.length - 5]}
         />        
       </div>
-      {mostrarModalConfig && <Modal title={'configuracion'}>
+      {mostrarModalConfig && <Modal title={'configuracion'} visualizar='config'>
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </Modal>}
+    {mostrarModalAyuda && <Modal title={'Ayuda'} visualizar='ayuda' >
+      <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </Modal>}
+    {mostrarModalRanking && <Modal title={'Ranking'} visualizar='Ranking'>
       <ul>
         <li>1</li>
         <li>2</li>

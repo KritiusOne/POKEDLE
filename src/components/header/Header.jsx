@@ -7,10 +7,19 @@ import { useState, useContext } from "react"
 import { CreatePokeContext } from "../../context/CreatePokeContext"
 import "./header.css"
 export function Header() {
-  const {mostrarModalConfig, setMostrarModalConfig} = useContext(CreatePokeContext)
+  const {mostrarModalConfig, setMostrarModalConfig, mostrarModalAyuda, setMostrarModalAyuda, mostrarModalRanking, setMostrarModalRanking} = useContext(CreatePokeContext)
+  const changeModalConfig = ()=>{
+    setMostrarModalConfig(!mostrarModalConfig)
+  }
+  const changeModalAyuda = ()=>{
+    setMostrarModalAyuda(!mostrarModalAyuda)
+  }
+  const changeModalRanking = ()=>{
+    setMostrarModalRanking(!mostrarModalRanking)
+  }
   return (
     <header className='Header'>
-      <Button handleClick={() => console.log("Boton de ayuda")} title=''>
+      <Button handleClick={changeModalAyuda} title=''>
         <IoIosHelpCircle className='header__Button__icon' />
       </Button>
       <Button
@@ -20,10 +29,10 @@ export function Header() {
         <BiDownArrow className='header__Button__icon' />
       </Button>
       <div className='header__container'>
-        <Button handleClick={() => console.log("Boton de puntuacion")} title=''>
+        <Button handleClick={changeModalRanking} title=''>
           <GiNetworkBars className='header__Button__icon' />
         </Button>
-        <Button handleClick={()=> setMostrarModalConfig(!mostrarModalConfig)} title=''>
+        <Button handleClick={changeModalConfig} title=''>
           <FiSettings className='header__Button__icon' s />
         </Button>
       </div>
