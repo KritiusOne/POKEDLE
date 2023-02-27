@@ -9,7 +9,7 @@ import "./game.css"
 
 export function Game() {
   const [actualPokemon, setActualPokemon] = useState("")
-  const {mostrarModalConfig, setMostrarModalConfig, mostrarModalAyuda, setMostrarModalAyuda, mostrarModalRanking, setMostrarModalRanking} = useContext(CreatePokeContext)
+  const {mostrarModalConfig, mostrarModalAyuda, mostrarModalRanking} = useContext(CreatePokeContext)
   const Pokemon = usePokemon()
   console.log("Respuesta-> " + Pokemon)
   const oportunidades = ["primera", "segunda", "tercerda", "cuarta", "quinta"]
@@ -44,20 +44,7 @@ export function Game() {
           )
           celdaLlena.innerText = ""
         }
-      } else if (SPECIAL.includes(letra)) {
-        if (letra === SPECIAL[4]) {
-          // position 4 is = 'Enter'
-          const namePokemonParcial = arr.map((cell) => cell.innerText)
-          const namePokemonFinal = namePokemonParcial.slice().join("")
-          console.log(namePokemonFinal)
-          const respuestaCorrecta = Pokemon.toUpperCase()
-          console.log(Pokemon)
-          // 1. Letras en su posición, 2. Letras fuera de posición, 3. Letras que no van
-          if (respuestaCorrecta == namePokemonFinal)
-            console.log("La respuesta es correcta")
-          else console.log("intenta otra vez")
-        }
-      }
+      } 
       console.log(letra)
     }
     window.addEventListener("keyup", handleKeyUp)
@@ -65,6 +52,33 @@ export function Game() {
       window.removeEventListener("keyup", handleKeyUp)
     }
   }, [])
+  useEffect(()=>{
+    const handleSolution = (e)=>{
+      const letra = e.key
+      const cells = document.querySelectorAll(
+        "." + oportunidades[oportunidades.length - 1]
+      )
+      const arr = [...cells]
+      let lleno = false
+      if (arr[arr.length - 1].innerText !== "") lleno = true
+        if (letra === SPECIAL[4]) {
+          // position 4 is = 'Enter'
+          const namePokemonParcial = arr.map((cell) => cell.innerText)
+          const namePokemonFinal = namePokemonParcial.slice().join("")
+          console.log(namePokemonFinal)
+          const respuestaCorrecta = Pokemon.toUpperCase()
+          console.log(respuestaCorrecta)
+          // 1. Letras en su posición, 2. Letras fuera de posición, 3. Letras que no van
+          if (respuestaCorrecta == namePokemonFinal)
+            console.log("La respuesta es correcta")
+          else console.log("intenta otra vez")
+        }
+    }
+    window.addEventListener('keyup', handleSolution)
+    return ()=>{
+      window.removeEventListener('keyup', handleSolution)
+    }
+  })
   return (
     <>
       <div className="game">
