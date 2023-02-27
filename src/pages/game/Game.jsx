@@ -60,6 +60,7 @@ export function Game() {
       )
       const arr = [...cells]
       let lleno = false
+      console.log(typeof lleno)
       if (arr[arr.length - 1].innerText !== "") lleno = true
         if (letra === SPECIAL[4]) {
           // position 4 is = 'Enter'
