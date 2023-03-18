@@ -3,6 +3,7 @@ import { CreatePokeContext } from "./CreatePokeContext"
 import Proptypes from "prop-types"
 
 export function PokeContextProvider({ children }) {
+  const [AllPokemon, setAllPokemon] = useState([])
   const [mostrarModalAyuda, setMostrarModalAyuda] = useState(false)
   const [mostrarModalRanking, setMostrarModalRanking] = useState(false)
   const [mostrarModalConfig, setMostrarModalConfig] = useState(false)
@@ -14,7 +15,9 @@ export function PokeContextProvider({ children }) {
         mostrarModalAyuda,
         setMostrarModalAyuda,
         mostrarModalRanking,
-        setMostrarModalRanking
+        setMostrarModalRanking,
+        AllPokemon,
+        setAllPokemon
       }}
     >
       {children}

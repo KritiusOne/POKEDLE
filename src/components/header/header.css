@@ -3,7 +3,7 @@
   top: 0;
   display: flex;
   flex-direction: row;
-  width: 85%;
+  width: 100%;
   height: 60px;
   justify-content: space-around;
   margin-bottom: 15px;
@@ -11,6 +11,7 @@
   border: none;
   border-bottom: 1px solid #999;
 }
+
 .header__Button__icon {
   font-size: 24px;
 }

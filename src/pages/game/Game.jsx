@@ -5,12 +5,14 @@ import { LetterInput } from "../../components/LetterInput/LetterInput"
 import { DELETE_KEY, SPECIAL, LETTERS } from "../../utilities/keyTypes"
 import { Header } from "../../components/header/Header"
 import { Modal } from "../../components/modal/Modal"
+import { isPresent } from "../../utilities/isPresent"
 import "./game.css"
 
 export function Game() {
   const [actualPokemon, setActualPokemon] = useState("")
-  const {mostrarModalConfig, mostrarModalAyuda, mostrarModalRanking} = useContext(CreatePokeContext)
+  const {mostrarModalConfig, mostrarModalAyuda, mostrarModalRanking, AllPokemon} = useContext(CreatePokeContext)
   const Pokemon = usePokemon()
+  console.log(AllPokemon)
   console.log("Respuesta-> " + Pokemon)
   const oportunidades = ["primera", "segunda", "tercerda", "cuarta", "quinta"]
   useEffect(() => {
@@ -60,20 +62,16 @@ export function Game() {
       )
       const arr = [...cells]
       let lleno = false
-      console.log(typeof lleno)
       if (arr[arr.length - 1].innerText !== "") lleno = true
-        if (letra === SPECIAL[4]) {
-          // position 4 is = 'Enter'
-          const namePokemonParcial = arr.map((cell) => cell.innerText)
-          const namePokemonFinal = namePokemonParcial.slice().join("")
-          console.log(namePokemonFinal)
-          const respuestaCorrecta = Pokemon.toUpperCase()
-          console.log(respuestaCorrecta)
-          // 1. Letras en su posición, 2. Letras fuera de posición, 3. Letras que no van
-          if (respuestaCorrecta == namePokemonFinal)
-            console.log("La respuesta es correcta")
-          else console.log("intenta otra vez")
-        }
+      if (letra === SPECIAL[4] && !e.repeat && lleno == true) {
+        // position 4 is = 'Enter'
+        const namePokemonParcial = arr.map((cell) => cell.innerText)
+        const intento = namePokemonParcial.slice().join("")
+        console.log(`el intento del participante a sido: ${intento}`)
+        const respuestaCorrecta = Pokemon.toUpperCase()
+        console.log(`La respuesta correcta a sido: ${respuestaCorrecta}`)
+        isPresent(respuestaCorrecta, intento, AllPokemon)
+      }
     }
     window.addEventListener('keyup', handleSolution)
     return ()=>{
@@ -84,26 +82,28 @@ export function Game() {
     <>
       <div className="game">
         <Header />
-        <LetterInput
-          namePkm={Pokemon}
-          numberContainer={oportunidades[oportunidades.length - 1]}
-        />
-        <LetterInput
-          namePkm={Pokemon}
-          numberContainer={oportunidades[oportunidades.length - 2]}
-        />
-        <LetterInput
-          namePkm={Pokemon}
-          numberContainer={oportunidades[oportunidades.length - 3]}
-        />
-        <LetterInput
-          namePkm={Pokemon}
-          numberContainer={oportunidades[oportunidades.length - 4]}
-        />
-        <LetterInput
-          namePkm={Pokemon}
-          numberContainer={oportunidades[oportunidades.length - 5]}
-        />        
+        <main>
+          <LetterInput
+            namePkm={Pokemon}
+            numberContainer={oportunidades[oportunidades.length - 1]}
+          />
+          <LetterInput
+            namePkm={Pokemon}
+            numberContainer={oportunidades[oportunidades.length - 2]}
+          />
+          <LetterInput
+            namePkm={Pokemon}
+            numberContainer={oportunidades[oportunidades.length - 3]}
+          />
+          <LetterInput
+            namePkm={Pokemon}
+            numberContainer={oportunidades[oportunidades.length - 4]}
+          />
+          <LetterInput
+            namePkm={Pokemon}
+            numberContainer={oportunidades[oportunidades.length - 5]}
+          />  
+        </main>      
       </div>
       {mostrarModalConfig && <Modal title={'configuracion'} visualizar='config'>
       <ul>
