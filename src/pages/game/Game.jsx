@@ -4,24 +4,23 @@ import { Header } from "../../components/header/Header"
 import { Modal } from "../../components/modal/Modal"
 import { VoidRow } from "../../components/Rows/voidRow/VoidRow"
 import { RowCompleted } from "../../components/Rows/rowCompleted/RowCompleted"
+import { CurrentRow } from "../../components/Rows/currentRow/currentRow"
+import {usePokemon } from '../../hooks/usePokemon'
 import "./game.css"
 
 export function Game() {
-  const {mostrarModalConfig, mostrarModalAyuda, mostrarModalRanking, AllPokemon} = useContext(CreatePokeContext)
+  const {mostrarModalConfig, mostrarModalAyuda, mostrarModalRanking, AllPokemon, pokemon, setPokemon} = useContext(CreatePokeContext)
   const [turn, setTurn] = useState(1)
-  const [pokemon, setPokemon] = useState('');
-  useEffect(() => {
-    setPokemon('PIKACHU')
-  }, [])
-  
-  
+  const [numeroCasillas, setNumeroCasillas] = useState(0)
+  usePokemon()
   return (
     <>
       <div className="game">
         <Header />
         <main>
          <VoidRow word={pokemon} />
-         <RowCompleted word={'RATTATA'} solution={pokemon}/>
+         <RowCompleted word='RATTATA' solution={pokemon}/>
+         <CurrentRow word='RA' pokemon={numeroCasillas} />
         </main>      
       </div>
       {mostrarModalConfig && <Modal title={'configuracion'} visualizar='config'>
