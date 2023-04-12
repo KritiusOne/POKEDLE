@@ -3,8 +3,8 @@ import "./button.css"
 
 export function Button({ title, handleClick, children, clase }) {
   return (
-    <button onClick={handleClick} className={`button ${clase}`} >
-      <span className='button__title'> {title} </span>
+    <button onClick={handleClick} className={`button ${clase}`}>
+      <span className="button__title"> {title} </span>
       {children}
     </button>
   )

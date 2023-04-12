@@ -5,8 +5,8 @@ import { Game } from "../pages/game/Game"
 export function MyRoutes() {
   return (
     <Routes>
-      <Route path='/' element={<Lobby />} />
-      <Route path='/game' element={<Game />} />
+      <Route path="/" element={<Lobby />} />
+      <Route path="/game" element={<Game />} />
     </Routes>
   )
 }
