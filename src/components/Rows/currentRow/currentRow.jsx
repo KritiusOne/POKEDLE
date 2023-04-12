@@ -1,16 +1,26 @@
-import React from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import { Box } from '../box/Box'
+import { CreatePokeContext } from '../../../context/CreatePokeContext'
 import './currentRow.css'
 
-export function CurrentRow({word, pokemon}) { // palabra incompleta Ej: Ratt (Rattata)
+export function CurrentRow({word}) { // palabra incompleta Ej: Ratt (Rattata)
+  const { BoxNumbers } = useContext(CreatePokeContext)
+  const [boxCount, setBoxCount] = useState(0)
+
+  useEffect(() => {
+    if (BoxNumbers) {
+      setBoxCount(BoxNumbers)
+    }
+  }, [BoxNumbers])
+
   return (
-    <div className='currentRow'>
-      {
-        word.split('').map((letra, index)=> <Box key={index} letra={letra} status='edit' />)
-      }
-      {
-        Array.from(Array(7)).map((letra, i)=><Box key={i} letra={''} status={'edit'} />)
-      }
+    <div className='currentRow Rows'>
+      {word.split('').map((letra, index) => (
+        <Box key={index} letra={letra} status='edit' />
+      ))}
+      {Array.from({ length: Math.max(boxCount - word.length, 0) }).map((letra, i) => (
+        <Box key={i} letra={''} status={'edit'} />
+      ))}
     </div>
   )
 }

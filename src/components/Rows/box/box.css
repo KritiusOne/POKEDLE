@@ -1,21 +1,65 @@
 .Box {
   display: inline-block;
   border: 2px solid #000;
-  height: 40px;
-  width: 40px;
+  height: 30px;
+  width: 20px;
   margin: 0 10px;
   text-align: center;
-  line-height: 2;
+  line-height: 2.3;
 }
 
 .correct {
-  background-color: green;
+  background-color: #2CFF32;
 }
 
 .present {
-  background-color: yellow;
+  background-color: #FFF10E;
 }
 
 .none {
   background-color: transparent;
+}
+
+@media (max-width: 768px) and (min-width: 481px) {
+
+
+  .Box {
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.8;
+  }
+
+}
+
+@media (max-width: 1024px) and (min-width: 769px) {
+
+  .Box {
+    font-size: 28px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.5;
+  }
+
+}
+
+@media (max-width: 1200px) and (min-width: 1025px) {
+
+  .Box {
+    font-size: 32px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.3;
+  }
+
+}
+
+@media (min-width: 1201px) {
+  .Box {
+    font-size: 32px;
+    width: 40px;
+    height: 40px;
+    line-height: 1.1;
+  }
+
 }

@@ -4,7 +4,7 @@ import { isPresent } from '../../../utilities/isPresent'
 
 export function RowCompleted({word, solution}) {
   return (
-    <div className='RowCompleted'>
+    <div className='RowCompleted Rows'>
       {
         word && word.split('').map((element, index)=><Box letra={element} status={isPresent(element, index, solution)} key={index} />)
       }

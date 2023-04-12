@@ -8,6 +8,7 @@ export function PokeContextProvider({ children }) {
   const [mostrarModalRanking, setMostrarModalRanking] = useState(false)
   const [mostrarModalConfig, setMostrarModalConfig] = useState(false)
   const [pokemon, setPokemon] = useState('')
+  const [BoxNumbers, setBoxNumbers] = useState(0)
   return (
     <CreatePokeContext.Provider
       value={{
@@ -20,7 +21,9 @@ export function PokeContextProvider({ children }) {
         AllPokemon,
         setAllPokemon,
         pokemon,
-        setPokemon
+        setPokemon,
+        BoxNumbers,
+        setBoxNumbers
       }}
     >
       {children}

@@ -4,7 +4,7 @@ import './voidRow.css'
 
 export function VoidRow({word}) {
   return (
-    <div >
+    <div className='Rows voidRow' >
       {
         word && word.split('').map((letra, i)=>{
           return <Box key={i} status='none' ></Box>

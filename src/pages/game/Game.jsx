@@ -7,11 +7,11 @@ import { RowCompleted } from "../../components/Rows/rowCompleted/RowCompleted"
 import { CurrentRow } from "../../components/Rows/currentRow/currentRow"
 import {usePokemon } from '../../hooks/usePokemon'
 import "./game.css"
+import '../../components/Rows/rows.css'
 
 export function Game() {
   const {mostrarModalConfig, mostrarModalAyuda, mostrarModalRanking, AllPokemon, pokemon, setPokemon} = useContext(CreatePokeContext)
   const [turn, setTurn] = useState(1)
-  const [numeroCasillas, setNumeroCasillas] = useState(0)
   usePokemon()
   return (
     <>
@@ -19,8 +19,8 @@ export function Game() {
         <Header />
         <main>
          <VoidRow word={pokemon} />
-         <RowCompleted word='RATTATA' solution={pokemon}/>
-         <CurrentRow word='RA' pokemon={numeroCasillas} />
+         <RowCompleted word={pokemon} solution={pokemon}/>
+         <CurrentRow word='RA'/>
         </main>      
       </div>
       {mostrarModalConfig && <Modal title={'configuracion'} visualizar='config'>
