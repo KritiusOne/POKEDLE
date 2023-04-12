@@ -1,4 +1,4 @@
-export function mapStatus(status){
+export function mapStatus(status){ // estados de las letras
   if(typeof status == 'string'){
     switch(status){
       case 'correct': {
