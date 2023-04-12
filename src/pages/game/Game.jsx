@@ -12,15 +12,18 @@ import '../../components/Rows/rows.css'
 import { DELETE_KEY, LETTERS, SPECIAL } from "../../utilities/keyTypes"
 
 export function Game() {
-  const {mostrarModalConfig, mostrarModalAyuda, mostrarModalRanking, AllPokemon, pokemon, setPokemon} = useContext(CreatePokeContext)
+  const {mostrarModalConfig, mostrarModalAyuda, mostrarModalRanking, AllPokemon, pokemon} = useContext(CreatePokeContext)
   const [turn, setTurn] = useState(1)
   const [currentPokemon, setCurrentPokemon] = useState('')
+  const [CurrentCompletedPokemon, setCurrentCompletedPokemon] = useState([])
   const [GameStatus, setGameStatus] = useState('Playing') // estado general deljuego 
   usePokemon()
   const handleKeyDown = (event)=>{
     let key = event.key.toUpperCase();
-    console.log(event)
-    console.log(key)
+    if(GameStatus == 'Won'){
+      //implementacion para felicitar al usuario
+      return
+    }
     if(LETTERS.test(key) && !event.repeat && key.length == 1){
       if(currentPokemon.length < pokemon.length){
         setCurrentPokemon(currentPokemon + key)
@@ -30,10 +33,25 @@ export function Game() {
     }else if(DELETE_KEY.includes(key)) {
       setCurrentPokemon(currentPokemon.slice(0, currentPokemon.length - 1))
     }
-    if(event.key === SPECIAL[4]) onEnter()
+    if(event.key === SPECIAL[4] && currentPokemon.length == pokemon.length) onEnter()
   }
   function onEnter(){
-    if(currentPokemon.length < pokemon.length) return;
+    if(currentPokemon == pokemon) {
+      setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
+      setGameStatus('Won')
+      return
+    }
+    else if(turn == 6){
+      setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
+      setGameStatus('Lost')
+    }
+    else{
+      if(AllPokemon.includes(currentPokemon)){
+        setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
+        setTurn(turn + 1)
+        setCurrentPokemon('')
+      }
+    }
   }
   useWindow('keydown', handleKeyDown)
   return (
@@ -41,9 +59,15 @@ export function Game() {
       <div className="game">
         <Header />
         <main>
-         <VoidRow word={pokemon} />
-         <RowCompleted word={pokemon} solution={pokemon}/>
-         <CurrentRow word={currentPokemon}/>
+          {
+            CurrentCompletedPokemon.map((pkm, i)=><RowCompleted key={i} word={pkm} solution={pokemon} />)
+          }
+          {
+            GameStatus == 'Playing' ? <CurrentRow word={currentPokemon} /> : null
+          }
+          {
+            Array.from(Array(6 - turn)).map((_, i)=><VoidRow key={i} word={pokemon} />)
+          }
         </main>      
       </div>
       {mostrarModalConfig && <Modal title={'configuracion'} visualizar='config'>
