@@ -1,5 +1,5 @@
 .currentRow {
-  margin: 10px 0;
+  margin-bottom: 4px;
   display: flex;
   flex-direction: row;
   justify-content: center;

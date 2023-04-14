@@ -7,9 +7,10 @@ import { RowCompleted } from "../../components/Rows/rowCompleted/RowCompleted"
 import { CurrentRow } from "../../components/Rows/currentRow/currentRow"
 import { usePokemon } from "../../hooks/usePokemon"
 import { useWindow } from "../../hooks/useWindow"
+import { DELETE_KEY, LETTERS, SPECIAL } from "../../utilities/keyTypes"
+import { Keyboard } from "../../components/keyboard/Keyboard"
 import "./game.css"
 import "../../components/Rows/rows.css"
-import { DELETE_KEY, LETTERS, SPECIAL } from "../../utilities/keyTypes"
 
 export function Game() {
   const {
@@ -17,13 +18,12 @@ export function Game() {
     mostrarModalAyuda,
     mostrarModalRanking,
     AllPokemon,
-    pokemon,
+    pokemon, setAllPokemon,
+    turn, setTurn,
+    GameStatus, setGameStatus,
+    CurrentCompletedPokemon, setCurrentCompletedPokemon,
+    currentPokemon, setCurrentPokemon
   } = useContext(CreatePokeContext)
-  const [turn, setTurn] = useState(1)
-  const [currentPokemon, setCurrentPokemon] = useState("")
-  const [CurrentCompletedPokemon, setCurrentCompletedPokemon] = useState([])
-  const [GameStatus, setGameStatus] = useState("Playing") // estado general deljuego
-  usePokemon()
   const handleKeyDown = (event) => {
     let key = event.key.toUpperCase()
     if (GameStatus !== "Playing") {
@@ -38,42 +38,45 @@ export function Game() {
       }
     } else if (DELETE_KEY.includes(key)) {
       setCurrentPokemon(currentPokemon.slice(0, currentPokemon.length - 1))
-    }
-    if (event.key === SPECIAL[4] && currentPokemon.length == pokemon.length)
+    }else if(key == "-") setCurrentPokemon(currentPokemon + key)
+    if (event.key === SPECIAL[4] && currentPokemon.length == pokemon.length && AllPokemon.includes(currentPokemon)){
       onEnter()
+    }
   }
   function onEnter() {
+    console.log("entré")
+    setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
     if (currentPokemon == pokemon) {
-      setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
       setGameStatus("Won")
       return
     } else if (turn == 6) {
-      setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
       setGameStatus("Lost")
     } else {
-      if (AllPokemon.includes(currentPokemon)) {
-        setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
-        setTurn(turn + 1)
-        setCurrentPokemon("")
-      }
+      setTurn(turn + 1)
+      setCurrentPokemon("")
     }
   }
+  usePokemon()
+  
   useWindow("keydown", handleKeyDown)
   return (
     <>
       <div className="game">
         <Header />
-        <main>
-          {CurrentCompletedPokemon.map((pkm, i) => (
-            <RowCompleted key={i} word={pkm} solution={pokemon} />
-          ))}
-          {GameStatus == "Playing" ? (
-            <CurrentRow word={currentPokemon} />
-          ) : null}
-          {Array.from(Array(6 - turn)).map((_, i) => (
-            <VoidRow key={i} word={pokemon} />
-          ))}
-        </main>
+        <div className="game__group--Container">
+          <main className="game__grid-Row">
+            {CurrentCompletedPokemon.map((pkm, i) => (
+              <RowCompleted key={i} word={pkm} solution={pokemon} />
+            ))}
+            {GameStatus == "Playing" ? (
+              <CurrentRow word={currentPokemon} />
+            ) : null}
+            {Array.from(Array(6 - turn)).map((_, i) => (
+              <VoidRow key={i} word={pokemon} />
+            ))}
+          </main>
+          <Keyboard />
+        </div>
       </div>
       {mostrarModalConfig && (
         <Modal title={"configuracion"} visualizar="config">

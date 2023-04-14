@@ -1,0 +1,17 @@
+.key {
+  background-color: #D9D9D9;
+  color: #121212;
+  font-weight: bolder;
+  min-height: 45px;
+  min-width: 45px;
+  text-align: center;
+  line-height: 3;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+}
+
+.DELETE {
+  grid-column: 9/11;
+}

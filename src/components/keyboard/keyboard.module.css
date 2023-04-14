@@ -1,0 +1,10 @@
+.keyBoard {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  height: 200px;
+  width: 50vw;
+  gap: 5px;
+  grid-area: main;
+  place-content: center;
+}
