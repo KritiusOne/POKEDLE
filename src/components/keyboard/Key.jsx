@@ -1,18 +1,23 @@
-import React, {useContext} from "react"
+import React, { useContext } from "react"
 import { CreatePokeContext } from "../../context/CreatePokeContext"
 import { LETTERS, SPECIAL, DELETE_KEY } from "../../utilities/keyTypes"
-import './key.css'
+import { AiOutlineEnter } from "react-icons/ai"
+import "./key.css"
 
 export function Key({ value, type }) {
   const {
     AllPokemon,
     pokemon,
-    turn, setTurn,
-    GameStatus,setGameStatus,
-    CurrentCompletedPokemon,  setCurrentCompletedPokemon,
-    currentPokemon, setCurrentPokemon
+    turn,
+    setTurn,
+    GameStatus,
+    setGameStatus,
+    CurrentCompletedPokemon,
+    setCurrentCompletedPokemon,
+    currentPokemon,
+    setCurrentPokemon,
   } = useContext(CreatePokeContext)
-  const onHandleClick = (event)=>{
+  const onHandleClick = (event) => {
     const keyValue = event.target.innerText
     if (GameStatus !== "Playing") {
       //implementacion para felicitar o informar al usuario
@@ -22,13 +27,16 @@ export function Key({ value, type }) {
       if (currentPokemon.length < pokemon.length) {
         setCurrentPokemon(currentPokemon + keyValue)
       } else {
-        
         //modal para decir que debe corregir o aceptar
       }
     } else if (DELETE_KEY.includes(keyValue)) {
       setCurrentPokemon(currentPokemon.slice(0, currentPokemon.length - 1))
-    }else if(keyValue == "-") setCurrentPokemon(currentPokemon + keyValue)
-    if (keyValue === SPECIAL[4] && currentPokemon.length == pokemon.length && AllPokemon.includes(currentPokemon))
+    } else if (keyValue == "-") setCurrentPokemon(currentPokemon + keyValue)
+    if (
+      keyValue === SPECIAL[4] &&
+      currentPokemon.length == pokemon.length &&
+      AllPokemon.includes(currentPokemon)
+    )
       onEnter()
     console.log(keyValue)
   }
@@ -46,5 +54,9 @@ export function Key({ value, type }) {
       }
     }
   }
-  return <div onClick={onHandleClick} className={`${type}`}>{value}</div>
+  return (
+    <div onClick={onHandleClick} className={`${type.trim()}`}>
+      {value == "Enter" ? <AiOutlineEnter /> : value}
+    </div>
+  )
 }

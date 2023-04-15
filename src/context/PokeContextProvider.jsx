@@ -16,16 +16,26 @@ export function PokeContextProvider({ children }) {
   return (
     <CreatePokeContext.Provider
       value={{
-        mostrarModalConfig, setMostrarModalConfig,
-        mostrarModalAyuda, setMostrarModalAyuda,
-        mostrarModalRanking, setMostrarModalRanking,
-        AllPokemon, setAllPokemon,
-        pokemon, setPokemon,
-        currentPokemon, setCurrentPokemon,
-        turn, setTurn,
-        CurrentCompletedPokemon, setCurrentCompletedPokemon,
-        GameStatus, setGameStatus,
-        BoxNumbers, setBoxNumbers
+        mostrarModalConfig,
+        setMostrarModalConfig,
+        mostrarModalAyuda,
+        setMostrarModalAyuda,
+        mostrarModalRanking,
+        setMostrarModalRanking,
+        AllPokemon,
+        setAllPokemon,
+        pokemon,
+        setPokemon,
+        currentPokemon,
+        setCurrentPokemon,
+        turn,
+        setTurn,
+        CurrentCompletedPokemon,
+        setCurrentCompletedPokemon,
+        GameStatus,
+        setGameStatus,
+        BoxNumbers,
+        setBoxNumbers,
       }}
     >
       {children}

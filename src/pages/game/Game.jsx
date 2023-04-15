@@ -18,11 +18,16 @@ export function Game() {
     mostrarModalAyuda,
     mostrarModalRanking,
     AllPokemon,
-    pokemon, setAllPokemon,
-    turn, setTurn,
-    GameStatus, setGameStatus,
-    CurrentCompletedPokemon, setCurrentCompletedPokemon,
-    currentPokemon, setCurrentPokemon
+    pokemon,
+    setAllPokemon,
+    turn,
+    setTurn,
+    GameStatus,
+    setGameStatus,
+    CurrentCompletedPokemon,
+    setCurrentCompletedPokemon,
+    currentPokemon,
+    setCurrentPokemon,
   } = useContext(CreatePokeContext)
   const handleKeyDown = (event) => {
     let key = event.key.toUpperCase()
@@ -38,8 +43,12 @@ export function Game() {
       }
     } else if (DELETE_KEY.includes(key)) {
       setCurrentPokemon(currentPokemon.slice(0, currentPokemon.length - 1))
-    }else if(key == "-") setCurrentPokemon(currentPokemon + key)
-    if (event.key === SPECIAL[4] && currentPokemon.length == pokemon.length && AllPokemon.includes(currentPokemon)){
+    } else if (key == "-") setCurrentPokemon(currentPokemon + key)
+    if (
+      event.key === SPECIAL[4] &&
+      currentPokemon.length == pokemon.length &&
+      AllPokemon.includes(currentPokemon)
+    ) {
       onEnter()
     }
   }
@@ -57,7 +66,7 @@ export function Game() {
     }
   }
   usePokemon()
-  
+
   useWindow("keydown", handleKeyDown)
   return (
     <>
