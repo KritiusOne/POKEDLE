@@ -1,4 +1,4 @@
-#Pokemon Wordle Game🐱‍👤
+# Pokemon Wordle Game🐱‍👤
 
 
 **Este es un juego en desarrollo que utiliza la API de Pokemon (llamada PokeApi) para hacer un juego inspirado en "wordle", solo con Pokemon. El juego está desarrollado con React y utiliza CSS nativo y, a veces, CSS module para los estilos.**
