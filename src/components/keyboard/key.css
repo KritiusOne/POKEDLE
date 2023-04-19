@@ -3,32 +3,79 @@
   color: #121212;
   font-weight: bolder;
   text-align: center;
-  line-height: 3.5;
   border-radius: 5px;
   cursor: pointer;
   font-size: 16px;
   user-select: none;
+  max-width: 50px;
+  max-height: 30px;
+  line-height: 1.5;
 }
 
 .DELETE {
   grid-column: 9/11;
+  max-width: 150px;
 }
-
 @media (max-width: 768px) and (min-width: 481px) {
 }
 
 @media (max-width: 1024px) and (min-width: 769px) {
+  .key {
+    background-color: #d9d9d9;
+    color: #121212;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    max-width: 50px;
+    max-height: 40px;
+    line-height: 2.5;
+  }
+  .DELETE {
+    grid-column: 9/11;
+    max-width: 120px;
+  }
 }
 
 @media (max-width: 1200px) and (min-width: 1025px) {
   .key {
-    font-size: 24px;
+    background-color: #d9d9d9;
+    color: #121212;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    user-select: none;
+    max-width: 50px;
+    max-height: 50px;
+    line-height: 2.5;
+  }
+  .DELETE {
+    grid-column: 9/11;
+    max-width: 120px;
   }
 }
 
 @media (min-width: 1201px) {
   .key {
-    line-height: 2.4;
-    font-size: 24px;
+    background-color: #d9d9d9;
+    color: #121212;
+    font-weight: bolder;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 3;
+    user-select: none;
+    max-width: 50px;
+    max-height: 60px;
   }
+  .DELETE {
+    grid-column: 9/11;
+    max-width: 150px;
+  }
+  
 }

@@ -24,6 +24,7 @@ export function Keyboard() {
     "J",
     "K",
     "L",
+    `${SPECIAL[4]}`,
     "Z",
     "X",
     "C",
@@ -32,7 +33,6 @@ export function Keyboard() {
     "N",
     "M",
     "-",
-    `${SPECIAL[4]}`,
     `${DELETE_KEY[1]}`,
   ]
   return (

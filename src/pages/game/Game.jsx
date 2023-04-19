@@ -70,20 +70,20 @@ export function Game() {
   useWindow("keydown", handleKeyDown)
   return (
     <>
+      <Header />
       <div className="game">
-        <Header />
-        <div className="game__group--Container">
-          <main className="game__grid-Row">
-            {CurrentCompletedPokemon.map((pkm, i) => (
-              <RowCompleted key={i} word={pkm} solution={pokemon} />
-            ))}
-            {GameStatus == "Playing" ? (
-              <CurrentRow word={currentPokemon} />
-            ) : null}
-            {Array.from(Array(6 - turn)).map((_, i) => (
-              <VoidRow key={i} word={pokemon} />
-            ))}
-          </main>
+        <main className="game__grid-Rows">
+          {CurrentCompletedPokemon.map((pkm, i) => (
+            <RowCompleted key={i} word={pkm} solution={pokemon} />
+          ))}
+          {GameStatus == "Playing" ? (
+            <CurrentRow word={currentPokemon} />
+          ) : null}
+          {Array.from(Array(6 - turn)).map((_, i) => (
+            <VoidRow key={i} word={pokemon} />
+          ))}
+        </main>
+        <div className="game__keyboard--container">
           <Keyboard />
         </div>
       </div>

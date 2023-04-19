@@ -1,11 +1,12 @@
 .Box {
   display: inline-block;
   border: 2px solid #000;
-  height: 30px;
-  width: 20px;
-  margin: 0 10px;
+  height: 40px;
+  width: 25px;
+  margin: 0 2px;
   text-align: center;
   line-height: 2.3;
+  border-radius: 4px;
 }
 
 .correct {
@@ -24,7 +25,7 @@
   .Box {
     font-size: 24px;
     width: 40px;
-    height: 40px;
+    height: 30px;
     line-height: 1.8;
   }
 }
