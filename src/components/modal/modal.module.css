@@ -1,7 +1,7 @@
-:root{
+:root {
   --bg-Modal-light: #fff;
 }
-*{
+* {
   list-style: none;
   overflow: none;
 }
@@ -43,13 +43,16 @@
   font-size: 24px;
 }
 @media (max-width: 768px) and (min-width: 481px) {
-  .title{
+  .title {
     font-size: 28px;
   }
 }
 
-@media (max-width: 1024px) and (min-width: 769px) {}
+@media (max-width: 1024px) and (min-width: 769px) {
+}
 
-@media (max-width: 1200px) and (min-width: 1025px){}
+@media (max-width: 1200px) and (min-width: 1025px) {
+}
 
-@media (min-width: 1201px) {}
+@media (min-width: 1201px) {
+}

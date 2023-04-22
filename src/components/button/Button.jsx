@@ -12,5 +12,5 @@ export function Button({ title, handleClick, children, clase }) {
 Button.propTypes = {
   title: propTypes.string,
   handleClick: propTypes.func,
-  clase:  propTypes.string
+  clase: propTypes.string,
 }

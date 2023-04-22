@@ -30,7 +30,7 @@
     max-height: 30px;
     line-height: 1.5;
   }
-  
+
   .DELETE {
     grid-column: 9/11;
     max-width: 100px;
@@ -95,5 +95,4 @@
     grid-column: 9/11;
     max-width: 150px;
   }
-  
 }
