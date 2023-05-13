@@ -1,14 +1,18 @@
 import { useContext, useState } from "react"
 import { CreatePokeContext } from "../../context/CreatePokeContext"
-import { Header } from "../../components/header/Header"
 import { Modal } from "../../components/modal/Modal"
+import { Header } from "../../components/header/Header"
+import { Helmet } from "react-helmet"
 import { VoidRow } from "../../components/Rows/voidRow/VoidRow"
+import { Keyboard } from "../../components/keyboard/Keyboard"
 import { RowCompleted } from "../../components/Rows/rowCompleted/RowCompleted"
 import { CurrentRow } from "../../components/Rows/currentRow/currentRow"
 import { usePokemon } from "../../hooks/usePokemon"
 import { useWindow } from "../../hooks/useWindow"
+import { ThemeContext } from "../../context/contextTheme/ThemeContext"
 import { DELETE_KEY, LETTERS, SPECIAL } from "../../utilities/keyTypes"
-import { Keyboard } from "../../components/keyboard/Keyboard"
+import { ModalChildrenConfig } from "../../components/modalChildrens/ModalChildrenConfig"
+import "../../App.css"
 import "./game.css"
 import "../../components/Rows/rows.css"
 
@@ -29,6 +33,7 @@ export function Game() {
     currentPokemon,
     setCurrentPokemon,
   } = useContext(CreatePokeContext)
+  const { darkMode } = useContext(ThemeContext)
   const handleKeyDown = (event) => {
     let key = event.key.toUpperCase()
     if (GameStatus !== "Playing") {
@@ -70,8 +75,11 @@ export function Game() {
   useWindow("keydown", handleKeyDown)
   return (
     <>
+      <Helmet>
+        <title>Pokedle!</title>
+      </Helmet>
       <Header />
-      <div className="game">
+      <div className={`game ${darkMode ? "dark-mode-bg" : ""}`}>
         <main className="game__grid-Rows">
           {CurrentCompletedPokemon.map((pkm, i) => (
             <RowCompleted key={i} word={pkm} solution={pokemon} />
@@ -89,11 +97,7 @@ export function Game() {
       </div>
       {mostrarModalConfig && (
         <Modal title={"configuracion"} visualizar="config">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
+          <ModalChildrenConfig />
         </Modal>
       )}
       {mostrarModalAyuda && (
