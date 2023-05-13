@@ -1,0 +1,25 @@
+:root {
+  --color-bg-dark: #1d2126;
+  --color-bg-light: #f2f2f2;
+  --color-primary-blue: #17a0bf;
+  --color-second-green: #42dc34;
+  --color-optional-brown: #403027;
+}
+.dark-mode-bg {
+  background-color: var(--color-bg-dark);
+  color: var(--color-bg-light);
+}
+.dark-box {
+  border: 3px solid var(--color-primary-blue);
+}
+.header--dark-mode {
+  border-bottom: 3px solid var(--color-primary-blue);
+  background-color: var(--color-bg-dark);
+}
+
+.button--dark-mode {
+  color: var(--color-bg-light);
+}
+.icon--dark-mode {
+  color: var(--color-second-green);
+}

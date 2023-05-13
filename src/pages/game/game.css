@@ -6,6 +6,7 @@
   grid-template-columns: 1fr;
   justify-content: center;
   align-items: center;
+  background-color: var(--color-bg-light);
 }
 .game__grid-Rows {
   display: flex;
@@ -20,6 +21,10 @@
   justify-content: center;
   align-items: center;
   grid-row: 3/4;
+}
+.dark-mode-bg {
+  background-color: var(--color-bg-dark);
+  color: var(--color-bg-light);
 }
 @media (max-width: 768px) and (min-width: 481px) {
   .game {
@@ -46,7 +51,6 @@
     align-items: center;
   }
 }
-
 @media (max-width: 1024px) and (min-width: 769px) {
   .game {
     margin-top: 40px;

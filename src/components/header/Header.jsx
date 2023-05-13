@@ -5,8 +5,12 @@ import { FiSettings } from "react-icons/fi"
 import { useState, useContext } from "react"
 import { CreatePokeContext } from "../../context/CreatePokeContext"
 import { BiHelpCircle } from "react-icons/bi"
+import { TitleButton } from "../button/titleButton/TitleButton"
 import "./header.css"
+import { ThemeContext } from "../../context/contextTheme/ThemeContext"
+
 export function Header() {
+  const { darkMode } = useContext(ThemeContext)
   const {
     mostrarModalConfig,
     setMostrarModalConfig,
@@ -25,7 +29,7 @@ export function Header() {
     setMostrarModalRanking(!mostrarModalRanking)
   }
   return (
-    <header className="Header">
+    <header className={`Header ${darkMode ? "header--dark-mode" : ""}`}>
       <Button
         handleClick={changeModalAyuda}
         title=""
@@ -33,13 +37,13 @@ export function Header() {
       >
         <BiHelpCircle className="header__Button__icon" />
       </Button>
-      <Button
+      <TitleButton
         handleClick={() => console.log("Boton de titulo")}
         title="POKEDLE"
-        clase={"Header__button-title"}
+        clase={`Header__button-title ${darkMode ? "icon--dark-mode" : ""}`}
       >
         <BiDownArrow className="header__Button__icon" />
-      </Button>
+      </TitleButton>
       <div className="header__container">
         <Button
           handleClick={changeModalRanking}

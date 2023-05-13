@@ -1,0 +1,27 @@
+.ModalChildrenConfig {
+  width: 100%;
+  height: 80%;
+}
+.ModalChildrenConfig__list {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ModalChildrenConfig__list--element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid #000;
+  margin: 10px 5px;
+  width: 80%;
+}
+.ModalChildrenConfig__list__title {
+  font-size: 24px;
+}
+.button--Darkmode {
+}
+.button--darkmode-Icon {
+  font-size: 24px;
+}

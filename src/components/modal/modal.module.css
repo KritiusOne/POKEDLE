@@ -17,7 +17,17 @@
 }
 
 .Modal {
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 1fr;
+  place-content: center;
+  position: relative;
+  background-color: var(--bg-Modal-light);
+  width: 90%;
+  height: 70%;
+  border-radius: 10px;
+  padding: 10px;
+  /* display: flex;
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: space-evenly;
@@ -27,7 +37,7 @@
   width: 90%;
   height: 70%;
   border-radius: 10px;
-  padding: 10px;
+  padding: 10px; */
 }
 
 .title {
@@ -41,6 +51,19 @@
   top: 10px;
   right: 10px;
   font-size: 24px;
+}
+.darkMode {
+  display: grid;
+  grid-template-rows: 1fr 4fr;
+  grid-template-columns: 1fr;
+  place-content: center;
+  position: relative;
+  width: 90%;
+  height: 70%;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: var(--color-optional-brown);
+  color: var(--bg-Modal-light);
 }
 @media (max-width: 768px) and (min-width: 481px) {
   .title {

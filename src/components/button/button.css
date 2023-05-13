@@ -9,3 +9,6 @@
 .button__title {
   font-size: 24px;
 }
+h1 {
+  display: inline-block;
+}
