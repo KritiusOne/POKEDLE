@@ -2,8 +2,10 @@ import { useState } from "react"
 import { ThemeContext } from "./ThemeContext"
 
 export function ThemeContextProvider({ children }) {
-  const [darkMode, setDarkMode] = useState(false)
+  const theme = localStorage.getItem("theme")
+  const [darkMode, setDarkMode] = useState(theme)
   const [namePlayer, setNamePlayer] = useState("")
+  const [region, setRegion] = useState(1)
   return (
     <ThemeContext.Provider
       value={{
@@ -11,6 +13,8 @@ export function ThemeContextProvider({ children }) {
         setDarkMode,
         namePlayer,
         setNamePlayer,
+        region, 
+        setRegion
       }}
     >
       {children}

@@ -1,6 +1,5 @@
 import { useContext, useState } from "react"
 import { CreatePokeContext } from "../../context/CreatePokeContext"
-import { Modal } from "../../components/modal/Modal"
 import { Header } from "../../components/header/Header"
 import { Helmet } from "react-helmet"
 import { VoidRow } from "../../components/Rows/voidRow/VoidRow"
@@ -11,19 +10,15 @@ import { usePokemon } from "../../hooks/usePokemon"
 import { useWindow } from "../../hooks/useWindow"
 import { ThemeContext } from "../../context/contextTheme/ThemeContext"
 import { DELETE_KEY, LETTERS, SPECIAL } from "../../utilities/keyTypes"
-import { ModalChildrenConfig } from "../../components/modalChildrens/ModalChildrenConfig"
+import ModalsList from "../../components/modal/ModalsList"
 import "../../App.css"
 import "./game.css"
 import "../../components/Rows/rows.css"
 
 export function Game() {
   const {
-    mostrarModalConfig,
-    mostrarModalAyuda,
-    mostrarModalRanking,
     AllPokemon,
     pokemon,
-    setAllPokemon,
     turn,
     setTurn,
     GameStatus,
@@ -95,29 +90,7 @@ export function Game() {
           <Keyboard />
         </div>
       </div>
-      {mostrarModalConfig && (
-        <Modal title={"configuracion"} visualizar="config">
-          <ModalChildrenConfig />
-        </Modal>
-      )}
-      {mostrarModalAyuda && (
-        <Modal title={"Ayuda"} visualizar="ayuda">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
-        </Modal>
-      )}
-      {mostrarModalRanking && (
-        <Modal title={"Ranking"} visualizar="Ranking">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
-        </Modal>
-      )}
+      <ModalsList />
     </>
   )
 }
