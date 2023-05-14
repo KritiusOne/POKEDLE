@@ -27,9 +27,9 @@ export function Modal({ children, title, visualizar }) {
       <div className={styles.Overlay}>
         <div className={darkMode ? styles.darkMode : styles.Modal}>
           <h2 className={styles.title}> {title} </h2>
-          <Button clase={styles.escape}>
-            <SlClose onClick={changeViewModal} />
-          </Button>
+          <button className={styles.escape}>
+            <SlClose className={styles.escapeIcon} onClick={changeViewModal} />
+          </button>
           <div>{children}</div>
         </div>
       </div>
