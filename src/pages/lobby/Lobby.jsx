@@ -47,9 +47,9 @@ export function Lobby() {
           <OptionTable title={"Nivel de dificultad"}>
             <select name="" id="" className="lobby__main__option" onChange={handleChangeOptionLetters}>
               <option value="0"> Abierto</option>
-              <option value="1"> 6 letras Max</option>
-              <option value="2"> 7 letras Max</option>
-              <option value="3"> 8 letras Max</option>
+              <option value="6"> 6 letras Max</option>
+              <option value="7"> 7 letras Max</option>
+              <option value="8"> 8 letras Max</option>
             </select>
           </OptionTable>
         </Table>

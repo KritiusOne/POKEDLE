@@ -6,7 +6,7 @@ import { keys } from "../../keys-Featching"
 export const usePokemon = () => {
   const { setAllPokemon, setPokemon, setBoxNumbers } =
     useContext(CreatePokeContext)
-  const {region } = useContext(ThemeContext)
+  const { region, level } = useContext(ThemeContext)
   
   const KEY = keys(region)
 
@@ -16,10 +16,13 @@ export const usePokemon = () => {
         await fetch(KEY)
           .then((response) => response.json())
           .then((res) => {
-            console.log(res)
+            const filterLevel = level == 0 ? res.pokemon_entries : res.pokemon_entries.filter((pkm, i)=> pkm.pokemon_species.name.length == level)
+            const mappedResponse = {
+              pokemon_entries: filterLevel
+            }
+
             if(region == 1){
-              const responseSlice = res.pokemon_entries.filter((pkm, i) => i <= 648)
-              console.log(responseSlice)
+              const responseSlice = mappedResponse.pokemon_entries.filter((pkm, i) => i <= 648)
               const indexPokemon = Math.floor(
                 Math.random() * responseSlice.length
               )
@@ -37,11 +40,11 @@ export const usePokemon = () => {
               setBoxNumbers(namePokemon.length)  
             }else{
               const indexPokemon = Math.floor(
-                Math.random() * res.pokemon_entries.length
+                Math.random() * mappedResponse.pokemon_entries.length
               )
               const namePokemon =
-                res.pokemon_entries[indexPokemon].pokemon_species.name
-              const AllPokemonFilter = res.pokemon_entries.map(
+              mappedResponse.pokemon_entries[indexPokemon].pokemon_species.name
+              const AllPokemonFilter = mappedResponse.pokemon_entries.map(
                 (pokemonObject) => {
                   const pokemonFiltrado =
                     pokemonObject.pokemon_species.name.toUpperCase()
