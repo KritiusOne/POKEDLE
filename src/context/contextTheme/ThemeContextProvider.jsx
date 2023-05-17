@@ -14,9 +14,10 @@ export function ThemeContextProvider({ children }) {
         setDarkMode,
         namePlayer,
         setNamePlayer,
-        region, 
+        region,
         setRegion,
-        level, setLevel
+        level,
+        setLevel,
       }}
     >
       {children}

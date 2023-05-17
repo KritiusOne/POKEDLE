@@ -1,4 +1,4 @@
-export function keys(region){
+export function keys(region) {
   const KEY_NATIONAL__POKEDEX = "https://pokeapi.co/api/v2/pokedex/1/"
   const KEY_REGIONAL__POKEDEX = `https://pokeapi.co/api/v2/pokedex/${region}`
   console.log(region)

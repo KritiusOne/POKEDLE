@@ -1,16 +1,19 @@
-import React, { useContext } from 'react'
-import { CreatePokeContext } from '../../context/CreatePokeContext'
-import { Modal } from './Modal'
-import {ModalChildrenConfig} from './modalChildrens/ModalChildrenConfig'
+import React, { useContext } from "react"
+import { CreatePokeContext } from "../../context/CreatePokeContext"
+import { Modal } from "./Modal"
+import { ModalChildrenConfig } from "./modalChildrens/ModalChildrenConfig"
+import { ModalChildrenWon } from "./modalChildrens/ModalChildrenWon"
 
 export default function ModalsList() {
   const {
     mostrarModalConfig,
     mostrarModalAyuda,
-    mostrarModalRanking} = useContext(CreatePokeContext)
+    mostrarModalRanking,
+    mostrarModalWon,
+  } = useContext(CreatePokeContext)
   return (
     <>
-    {mostrarModalConfig && (
+      {mostrarModalConfig && (
         <Modal title={"configuracion"} visualizar="config">
           <ModalChildrenConfig />
         </Modal>
@@ -33,6 +36,7 @@ export default function ModalsList() {
           </ul>
         </Modal>
       )}
+      {mostrarModalWon && <ModalChildrenWon />}
     </>
   )
 }

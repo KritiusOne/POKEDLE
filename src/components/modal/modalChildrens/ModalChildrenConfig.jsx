@@ -16,7 +16,10 @@ export function ModalChildrenConfig() {
   return (
     <div className="ModalChildrenConfig Config--modal">
       <Table title={""} className="ModalChildrenConfig__list">
-        <OptionTable title={"Tema oscuro: "} className="ModalChildrenConfig__list--element">
+        <OptionTable
+          title={"Tema oscuro: "}
+          className="ModalChildrenConfig__list--element"
+        >
           <Button
             title=""
             handleClick={handleDarkMode}
@@ -29,7 +32,9 @@ export function ModalChildrenConfig() {
             )}
           </Button>
         </OptionTable>
-        <OptionTable className="ModalChildrenConfig__list--element">Nivel</OptionTable>
+        <OptionTable className="ModalChildrenConfig__list--element">
+          Nivel
+        </OptionTable>
         <OptionTable className="ModalChildrenConfig__list--element">
           modo alto contraste
         </OptionTable>

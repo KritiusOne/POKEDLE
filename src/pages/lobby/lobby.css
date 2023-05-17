@@ -8,7 +8,7 @@
   height: 100vh;
   width: 100vw;
 }
-.lobby__main{
+.lobby__main {
   width: 100%;
   height: 70%;
   display: flex;
@@ -33,9 +33,9 @@
   background-color: var(--color-bg-dark);
   color: var(--color-bg-light);
 }
-.dark-mode--buttonLink{
+.dark-mode--buttonLink {
   background-color: var(--color-second-green);
 }
-.dark-mode--text{
+.dark-mode--text {
   color: var(--color-bg-light);
 }

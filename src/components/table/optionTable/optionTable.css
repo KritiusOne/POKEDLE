@@ -1,4 +1,4 @@
-.OptionTable{
+.OptionTable {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -7,16 +7,16 @@
   width: 100%;
   padding: 5px;
 }
-.dark-mode--optionTable{
+.dark-mode--optionTable {
   border-bottom: 1px solid var(--color-primary-blue);
 }
-.OptionTable__title--container{
+.OptionTable__title--container {
   text-align: center;
 }
-.OptionTable__title{
+.OptionTable__title {
   font-size: 24px;
   font-weight: normal;
 }
-.dark-mode--titleTable{
+.dark-mode--titleTable {
   color: var(--color-primary-blue);
 }

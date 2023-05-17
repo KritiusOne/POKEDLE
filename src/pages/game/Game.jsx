@@ -27,8 +27,9 @@ export function Game() {
     setCurrentCompletedPokemon,
     currentPokemon,
     setCurrentPokemon,
+    setMostrarModalWon,
   } = useContext(CreatePokeContext)
-  const { darkMode } = useContext(ThemeContext)
+  const { darkMode, namePlayer } = useContext(ThemeContext)
   const handleKeyDown = (event) => {
     let key = event.key.toUpperCase()
     if (GameStatus !== "Playing") {
@@ -57,6 +58,7 @@ export function Game() {
     setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
     if (currentPokemon == pokemon) {
       setGameStatus("Won")
+      setMostrarModalWon(true)
       return
     } else if (turn == 6) {
       setGameStatus("Lost")

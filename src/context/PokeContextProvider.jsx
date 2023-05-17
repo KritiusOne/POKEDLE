@@ -7,6 +7,7 @@ export function PokeContextProvider({ children }) {
   const [mostrarModalAyuda, setMostrarModalAyuda] = useState(false)
   const [mostrarModalRanking, setMostrarModalRanking] = useState(false)
   const [mostrarModalConfig, setMostrarModalConfig] = useState(false)
+  const [mostrarModalWon, setMostrarModalWon] = useState(false)
   const [pokemon, setPokemon] = useState("")
   const [turn, setTurn] = useState(1)
   const [currentPokemon, setCurrentPokemon] = useState("")
@@ -22,6 +23,8 @@ export function PokeContextProvider({ children }) {
         setMostrarModalAyuda,
         mostrarModalRanking,
         setMostrarModalRanking,
+        mostrarModalWon,
+        setMostrarModalWon,
         AllPokemon,
         setAllPokemon,
         pokemon,

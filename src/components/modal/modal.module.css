@@ -57,7 +57,7 @@
   font-size: 24px;
   cursor: pointer;
 }
-.escapeIcon{
+.escapeIcon {
   font-size: 24px;
 }
 .darkMode {
@@ -73,7 +73,6 @@
   padding: 10px;
   background-color: var(--color-optional-brown);
   color: var(--bg-Modal-light);
-
 }
 @media (max-width: 768px) and (min-width: 481px) {
   .title {
