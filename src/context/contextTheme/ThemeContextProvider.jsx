@@ -6,6 +6,7 @@ export function ThemeContextProvider({ children }) {
   const [darkMode, setDarkMode] = useState(theme)
   const [namePlayer, setNamePlayer] = useState("")
   const [region, setRegion] = useState(1)
+  const [level, setLevel] = useState(0)
   return (
     <ThemeContext.Provider
       value={{
@@ -14,7 +15,8 @@ export function ThemeContextProvider({ children }) {
         namePlayer,
         setNamePlayer,
         region, 
-        setRegion
+        setRegion,
+        level, setLevel
       }}
     >
       {children}
