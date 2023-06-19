@@ -39,3 +39,39 @@
 .dark-mode--text {
   color: var(--color-bg-light);
 }
+
+select {
+  border: none;
+  outline: none;
+  background-color: var(--color-primary-blue);
+  border-radius: 20px;
+  height: 30px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-indent: 1px;
+  text-overflow: "";
+  text-align: center;
+  cursor: pointer;
+  width: 120px;
+  font-weight: normal;
+  padding-left: 10px;
+}
+option {
+  background-color: var(--color-bg-light);
+  font-weight: bold;
+  text-align: justify;
+  border: none;
+  outline: none;
+}
+select:hover {
+  background-color: var(--color-bg-light);
+}
+.lobby__main__option--input {
+  border: none;
+  outline: none;
+  height: 30px;
+  padding: 10px 5px;
+  background-color: transparent;
+  border-bottom: 3px solid var(--color-second-green);
+  color: var(--color-bg-light);
+}

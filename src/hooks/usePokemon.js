@@ -20,7 +20,7 @@ export const usePokemon = () => {
               level == 0
                 ? res.pokemon_entries
                 : res.pokemon_entries.filter(
-                    (pkm, i) => pkm.pokemon_species.name.length == level
+                    (pkm, i) => pkm.pokemon_species.name.length <= level
                   )
             const mappedResponse = {
               pokemon_entries: filterLevel,

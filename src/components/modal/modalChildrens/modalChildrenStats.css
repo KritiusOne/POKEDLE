@@ -1,0 +1,12 @@
+.modalChildrenStats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.modalChildrenStats--container {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(250px, 1fr));
+}

@@ -3,8 +3,9 @@ import { CreatePokeContext } from "../../context/CreatePokeContext"
 import { Modal } from "./Modal"
 import { ModalChildrenConfig } from "./modalChildrens/ModalChildrenConfig"
 import { ModalChildrenWon } from "./modalChildrens/ModalChildrenWon"
+import { ModalChildrenStats } from "./modalChildrens/ModalChildrenStats"
 
-export default function ModalsList() {
+export function ModalsList() {
   const {
     mostrarModalConfig,
     mostrarModalAyuda,
@@ -28,12 +29,8 @@ export default function ModalsList() {
         </Modal>
       )}
       {mostrarModalRanking && (
-        <Modal title={"Ranking"} visualizar="Ranking">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
+        <Modal title={"Estadisticas"} visualizar="Ranking">
+          <ModalChildrenStats />
         </Modal>
       )}
       {mostrarModalWon && <ModalChildrenWon />}

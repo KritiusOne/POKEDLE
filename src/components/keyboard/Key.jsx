@@ -23,7 +23,7 @@ export function Key({ value, type }) {
       //implementacion para felicitar o informar al usuario
       return
     }
-    if (LETTERS.test(keyValue) && !event.repeat && keyValue.length == 1) {
+    if (LETTERS.test(keyValue) && !event.repeat) {
       if (currentPokemon.length < pokemon.length) {
         setCurrentPokemon(currentPokemon + keyValue)
       } else {
@@ -44,6 +44,16 @@ export function Key({ value, type }) {
     setCurrentCompletedPokemon([...CurrentCompletedPokemon, currentPokemon])
     if (currentPokemon == pokemon) {
       setGameStatus("Won")
+      let partidasJugadas = localStorage.getItem("partidasJugadas")
+      let partidasGanadas = localStorage.getItem("ganadas")
+      let rachaActual = localStorage.getItem("rachaActual")
+      let mejorRacha = localStorage.getItem("mejorRacha")
+      localStorage.setItem("partidasJugadas", parseInt(partidasJugadas) + 1)
+      localStorage.setItem("ganadas", parseInt(partidasGanadas) + 1)
+      localStorage.setItem(
+        "rachaActual",
+        rachaActual <= 0 ? 1 : parseInt(rachaActual) + 1
+      )
       return
     } else if (turn == 6) {
       setGameStatus("Lost")

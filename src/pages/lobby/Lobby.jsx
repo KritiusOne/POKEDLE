@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
 import { Helmet } from "react-helmet"
 import { Header } from "../../components/header/Header"
-import ModalsList from "../../components/modal/ModalsList"
+import { ModalsList } from "../../components/modal/ModalsList"
 import { useContext } from "react"
 import { ThemeContext } from "../../context/contextTheme/ThemeContext"
 import { Table } from "../../components/table/Table"
 import { OptionTable } from "../../components/table/optionTable/OptionTable"
+import { useWindow } from "../../hooks/useWindow"
 import "./lobby.css"
 /*
 1. Poner nombre al jugador
@@ -24,6 +25,7 @@ export function Lobby() {
   const handleInputName = (e) => {
     setNamePlayer(e.target.value)
   }
+
   return (
     <>
       <Helmet>
@@ -35,8 +37,6 @@ export function Lobby() {
           <Table title={"Opciones de juego"}>
             <OptionTable title={`Escoge una region para jugar:`}>
               <select
-                name=""
-                id=""
                 className="lobby__main__option"
                 onChange={handleChangeOptionRegion}
               >

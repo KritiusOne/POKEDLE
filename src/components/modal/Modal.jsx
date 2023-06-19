@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import { Button } from "../button/Button"
 import { SlClose } from "react-icons/sl"
 import { CreatePokeContext } from "../../context/CreatePokeContext"
 import { ThemeContext } from "../../context/contextTheme/ThemeContext"
