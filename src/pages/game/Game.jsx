@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { CreatePokeContext } from "../../context/CreatePokeContext"
 import { Header } from "../../components/header/Header"
 import { Helmet } from "react-helmet"
@@ -11,10 +11,9 @@ import { usePokemon } from "../../hooks/usePokemon"
 import { useWindow } from "../../hooks/useWindow"
 import { ThemeContext } from "../../context/contextTheme/ThemeContext"
 import { DELETE_KEY, LETTERS, SPECIAL } from "../../utilities/keyTypes"
+import "../../components/Rows/rows.css"
 import "../../App.css"
 import "./game.css"
-import "../../components/Rows/rows.css"
-import { useEffect } from "react"
 
 export function Game() {
   const {

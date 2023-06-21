@@ -29,7 +29,7 @@ export function Modal({ children, title, visualizar }) {
           <button className={styles.escape}>
             <SlClose className={styles.escapeIcon} onClick={changeViewModal} />
           </button>
-          <div>{children}</div>
+          <div className={styles.containerChild}>{children}</div>
         </div>
       </div>
     </>
