@@ -7,7 +7,7 @@ export function VoidRow({ word }) {
     <div className="Rows voidRow">
       {word &&
         word.split("").map((letra, i) => {
-          return <Box key={i} status="none"></Box>
+          return <Box key={i} status="edit"></Box>
         })}
     </div>
   )

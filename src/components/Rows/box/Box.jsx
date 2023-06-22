@@ -7,7 +7,7 @@ export function Box({ letra, status }) {
   const { darkMode } = useContext(ThemeContext)
   const boxStatus = mapStatus(status)
   return (
-    <div className={`Box  ${boxStatus} ${darkMode ? "dark-box" : ""}`}>
+    <div className={`${boxStatus} ${darkMode ? "dark-box" : ""} Box`}>
       {letra}
     </div>
   )

@@ -32,15 +32,7 @@ export function ModalChildrenConfig() {
             )}
           </Button>
         </OptionTable>
-        <OptionTable className="ModalChildrenConfig__list--element">
-          Nivel
-        </OptionTable>
-        <OptionTable className="ModalChildrenConfig__list--element">
-          modo alto contraste
-        </OptionTable>
-        <OptionTable className="ModalChildrenConfig__list--element">
-          cambiar nombre de jugador
-        </OptionTable>
+        
       </Table>
     </div>
   )

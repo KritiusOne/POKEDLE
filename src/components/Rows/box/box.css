@@ -10,15 +10,18 @@
 }
 
 .correct {
+  border: none;
   background-color: #2cff32;
 }
 
 .present {
+  border: none;
   background-color: #fff10e;
 }
 
 .none {
-  background-color: transparent;
+    border: none;
+  background-color: #999999;
 }
 
 @media (max-width: 768px) and (min-width: 481px) {
