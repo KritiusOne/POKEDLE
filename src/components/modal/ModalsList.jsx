@@ -4,6 +4,7 @@ import { Modal } from "./Modal"
 import { ModalChildrenConfig } from "./modalChildrens/ModalChildrenConfig"
 import { ModalChildrenWon } from "./modalChildrens/ModalChildrenWon"
 import { ModalChildrenStats } from "./modalChildrens/ModalChildrenStats"
+import { ModalChildrenHelp } from "./modalChildrens/ModalChildrenHelp"
 
 export function ModalsList() {
   const {
@@ -21,11 +22,7 @@ export function ModalsList() {
       )}
       {mostrarModalAyuda && (
         <Modal title={"Ayuda"} visualizar="ayuda">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-          </ul>
+          <ModalChildrenHelp />
         </Modal>
       )}
       {mostrarModalRanking && (

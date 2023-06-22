@@ -1,7 +1,7 @@
 export function mapStatus(status) {
   // estados de las letras
   if (typeof status == "string") {
-    switch (status) {
+    switch (status.toLowerCase()) {
       case "correct": {
         return "correct" // verde
       }
@@ -16,4 +16,5 @@ export function mapStatus(status) {
       }
     }
   }
+  return "edit"
 }

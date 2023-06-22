@@ -14,7 +14,7 @@ export function ModalChildrenStats() {
   return (
     <div className="modalChildrenStats">
       <div className="modalChildrenStats--container">
-       <CardStatsBar />
+        <CardStatsBar />
       </div>
       <div className="modalChildrenStats__container--porcentajes">
         <CardTextStats

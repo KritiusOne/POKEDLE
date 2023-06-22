@@ -60,9 +60,8 @@ export function ModalChildrenWon() {
   return (
     <Modal title={"Felicitaciones!"}>
       <div className={styles.container}>
-        <div className='cardStatsBar'>
-
-        <CardStatsBar />
+        <div className="cardStatsBar">
+          <CardStatsBar />
         </div>
         <Button title={"Jugar nuevamente"} handleClick={setNewGame}></Button>
       </div>
