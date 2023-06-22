@@ -32,7 +32,6 @@ export function ModalChildrenConfig() {
             )}
           </Button>
         </OptionTable>
-        
       </Table>
     </div>
   )

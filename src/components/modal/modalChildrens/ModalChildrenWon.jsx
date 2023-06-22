@@ -26,12 +26,15 @@ export function ModalChildrenWon() {
     setMostrarModalWon(false)
   }
   usePokemon()
-  let partidasJugadas = localStorage.getItem("partidasJugadas")
   let partidasGanadas = localStorage.getItem("ganadas")
   let rachaActual = localStorage.getItem("rachaActual")
   let mejorRacha = localStorage.getItem("mejorRacha")
-  localStorage.setItem("partidasJugadas", parseInt(partidasJugadas) + 1)
-  localStorage.setItem("ganadas", parseInt(partidasGanadas) + 1)
+  if (partidasGanadas) {
+    localStorage.setItem("ganadas", 1)
+  } else {
+    localStorage.setItem("ganadas", parseInt(partidasGanadas) + 1)
+  }
+
   localStorage.setItem(
     "rachaActual",
     rachaActual <= 0 ? 1 : parseInt(rachaActual) + 1
@@ -39,24 +42,35 @@ export function ModalChildrenWon() {
 
   if (turn == 1) {
     let ganadasTurno = localStorage.getItem("primerIntento")
-    localStorage.setItem("primerIntento", parseInt(ganadasTurno) + 1)
+    ganadasTurno
+      ? localStorage.setItem("primerIntento", 1)
+      : localStorage.setItem("primerIntento", parseInt(ganadasTurno) + 1)
   } else if (turn == 2) {
     let ganadasTurno = localStorage.getItem("segundoIntento")
-    localStorage.setItem("segundoIntento", parseInt(ganadasTurno) + 1)
+    ganadasTurno
+      ? localStorage.setItem("segundoIntento", 1)
+      : localStorage.setItem("segundoIntento", parseInt(ganadasTurno) + 1)
   } else if (turn == 3) {
     let ganadasTurno = localStorage.getItem("tercerIntento")
-    localStorage.setItem("tercerIntento", parseInt(ganadasTurno) + 1)
+    ganadasTurno
+      ? localStorage.setItem("tercerIntento", 1)
+      : localStorage.setItem("tercerIntento", parseInt(ganadasTurno) + 1)
   } else if (turn == 4) {
     let ganadasTurno = localStorage.getItem("cuartoIntento")
-    localStorage.setItem("cuartoIntento", parseInt(ganadasTurno) + 1)
+    ganadasTurno
+      ? localStorage.setItem("cuartoIntento", 1)
+      : localStorage.setItem("cuartoIntento", parseInt(ganadasTurno) + 1)
   } else if (turn == 5) {
     let ganadasTurno = localStorage.getItem("quintoIntento")
-    localStorage.setItem("quintoIntento", parseInt(ganadasTurno) + 1)
+    ganadasTurno
+      ? localStorage.setItem("quintoIntento", 1)
+      : localStorage.setItem("quintoIntento", parseInt(ganadasTurno) + 1)
   } else {
     let ganadasTurno = localStorage.getItem("sextoIntento")
-    localStorage.setItem("sextoIntento", parseInt(ganadasTurno) + 1)
+    ganadasTurno
+      ? localStorage.setItem("sextoIntento", 1)
+      : localStorage.setItem("sextoIntento", parseInt(ganadasTurno) + 1)
   }
-  // la idea sería mostrarle la opcion para jugar de nuevo y mirar sus records
   return (
     <Modal title={"Felicitaciones!"}>
       <div className={styles.container}>
